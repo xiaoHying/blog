@@ -15,6 +15,11 @@ import api_amend from '@/components/page/api/api_amend'
 import add_class_one from '@/components/page/class/add_class_one'
 import add_class_two from '@/components/page/class/add_class_two'
 import class_list from '@/components/page/class/class_list'
+import amend_class from '@/components/page/class/amend_class'
+
+// 文章管理
+import article_list from '@/components/page/article/article_list'
+import add_article from '@/components/page/article/add_article'
 
 Vue.use(Router)
 
@@ -31,19 +36,7 @@ export default new Router({
             path: '/',
             name: 'main_index',
             component: mainIndex,
-        }, {
-            path: 'add_class_one',
-            name: 'add_class_one',
-            component: add_class_one,
-        }, {
-            path: 'add_class_two',
-            name: 'add_class_two',
-            component: add_class_two,
-        }, {
-            path: 'class_list',
-            name: 'class_list',
-            component: class_list,
-        }, {
+        }, { // 接口路由
             path: 'add_api',
             name: 'add_api',
             component: add_api,
@@ -63,6 +56,30 @@ export default new Router({
             path: 'api_amend',
             name: 'api_amend',
             component: api_amend,
+        }, { // 类名路由
+            path: 'add_class_one',
+            name: 'add_class_one',
+            component: add_class_one,
+        }, {
+            path: 'add_class_two',
+            name: 'add_class_two',
+            component: add_class_two,
+        }, {
+            path: 'class_list',
+            name: 'class_list',
+            component: class_list,
+        }, {
+            path: 'amend_class',
+            name: 'amend_class',
+            component: amend_class,
+        }, { // 文章路由
+            path: 'article_list',
+            name: 'article_list',
+            component: article_list,
+        }, {
+            path: 'add_article',
+            name: 'add_article',
+            component: add_article,
         }]
     }]
 })

@@ -1,51 +1,28 @@
 <template>
-  <div class="body">
-    <el-table
-    :data="everypage"
-    style="width: 100%"
-    :row-class-name="tableRowClassName" @row-dblclick.self="clickfn">
-    <el-table-column
-      prop="title"
-      label="标题"
-      width="180">
-    </el-table-column>
-    <el-table-column
-      prop="backorfont"
-      label="前后端分类"
-      width="180">
-    </el-table-column>
-    <el-table-column
-      prop="time"
-      label="时间" 
-      width="300">
-    </el-table-column>
-    <el-table-column label="操作" width="200">
-      <template scope="scope">
-        <el-button
-          size="small"
-          @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-        <el-button
-          size="small"
-          type="danger"
-          @click="handleDelete(scope.$index, scope.row)">删除</el-button>
-      </template>
-</el-table-column>
-</el-table>
-<div class="block">
-
-    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage4" :page-sizes="[5, 10, 15, 20]" :page-size="5" layout="total, sizes, prev, pager, next, jumper" :total="alldata.length">
-    </el-pagination>
-</div>
-<el-dialog title="提示" :visible.sync="dialogVisible" size="tiny">
-    <span>确定删除此接口文档</span>
-    <span slot="footer" class="dialog-footer">
-    <el-button @click="dialogVisible = false">取 消</el-button>
-    <el-button type="primary" @click="deleteFn">确 定</el-button>
-  </span>
-</el-dialog>
-
-</div>
-
+    <div class="body">
+        <el-table :data="everypage" style="width: 100%" :row-class-name="tableRowClassName" @row-dblclick.self="clickfn">
+            <el-table-column prop="title" label="标题" width="180"></el-table-column>
+            <el-table-column prop="backorfont" label="前后端分类" width="180"></el-table-column>
+            <el-table-column prop="time" label="时间" width="300"></el-table-column>
+            <el-table-column label="操作" width="200">
+                <template scope="scope">
+                    <el-button size="small" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+                    <el-button size="small" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+                </template>
+            </el-table-column>
+        </el-table>
+        <div class="block">
+            <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage4" :page-sizes="[5, 10, 15, 20]" :page-size="5" layout="total, sizes, prev, pager, next, jumper" :total="alldata.length">
+            </el-pagination>
+        </div>
+        <el-dialog title="提示" :visible.sync="dialogVisible" size="tiny">
+            <span>确定删除此接口文档</span>
+            <span slot="footer" class="dialog-footer">
+                <el-button @click="dialogVisible = false">取 消</el-button>
+                <el-button type="primary" @click="deleteFn">确 定</el-button>
+            </span>
+        </el-dialog>
+    </div>
 </template>
 
 <style>

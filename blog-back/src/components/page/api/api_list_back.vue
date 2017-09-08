@@ -6,13 +6,8 @@
             <el-table-column prop="time" label="时间" width="300"></el-table-column>
             <el-table-column label="操作" width="200">
                 <template scope="scope">
-                    <el-button
-                    size="small"
-                    @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-                    <el-button
-                    size="small"
-                    type="danger"
-                    @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+                    <el-button size="small" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+                    <el-button size="small" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -43,10 +38,8 @@
             },
             handleSizeChange(val) {
                 this.everypagelist = val
-
             },
             handleCurrentChange(val) {
-
                 this.everypage = this.alldata.slice(this.everypagelist * (val - 1), this.everypagelist * val)
 
             },
@@ -112,7 +105,6 @@
             }
         },
         mounted() {
-
             this.axios.get("/api/apilist/list?type=back").then(function(data) {
                 this.alldata = data.data.data
                 console.log(this.alldata)

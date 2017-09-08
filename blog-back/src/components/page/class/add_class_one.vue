@@ -24,7 +24,6 @@
 <script>
     export default {
         data() {
-
             var en = (rule, value, callback) => {
                 if (value === '') {
                     callback(new Error('请输入英文标识'));
@@ -78,7 +77,6 @@
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
                         _this.axios.post("/api/back_class/add_class_one",_this.ruleForm2).then(function(data){
-                            console.log(data)
                              if(data.data.code==="1014"){
                                 _this.$message({
                                     message:data.data.msg,
@@ -108,5 +106,9 @@
 <style scoped>
     h3 {
         margin: 20px 0 20px 40px
+    }
+    
+    .el-input{
+        width:300px;
     }
 </style>

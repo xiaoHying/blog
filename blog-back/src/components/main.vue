@@ -46,7 +46,7 @@
             padding: 0 10px;
             box-sizing: border-box;
             background: url("/images/backgrounds/1.jpg") no-repeat;
-            background-size:100% 100%;
+            background-size: 100% 100%;
             color: #fff;
             .log {
                 float: left;
@@ -55,14 +55,14 @@
                 float: right;
             }
         }
-        main{
-            width:100%;
-            display:flex;
+        main {
+            width: 100%;
+            display: flex;
             .pageLiat {
                 width: 200px;
             }
-            .pageContent{
-                width:1200px;
+            .pageContent {
+                width: 1200px;
             }
         }
     }

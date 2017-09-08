@@ -46,9 +46,9 @@ app.use("/api/back_class", classdone)
 var article = require("./api/back/article")
 app.use("/api/back_article", article)
 
-
-
-
+// 前台接口配置文章操作
+var frontarticle = require("./api/front/article")
+app.use("/api/front_article", frontarticle)
 
 
 // catch 404 and forward to error handler

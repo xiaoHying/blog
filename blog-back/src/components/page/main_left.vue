@@ -4,8 +4,12 @@
             <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
                 <el-submenu index="1">
                     <template slot="title"><i class="el-icon-menu"></i>文章管理</template>
-                    <el-menu-item index="1-1">添加文章</el-menu-item>
-                    <el-menu-item index="1-2">文章列表</el-menu-item>
+                    <router-link to="/main/add_article">
+                        <el-menu-item index="1-1">添加文章</el-menu-item>
+                    </router-link>
+                    <router-link to="/main/article_list">
+                        <el-menu-item index="1-2">文章列表</el-menu-item>
+                    </router-link>
                 </el-submenu>
                 <el-submenu index="2">
                     <template slot="title"><i class="el-icon-setting"></i>分类管理</template>

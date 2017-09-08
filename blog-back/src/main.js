@@ -9,6 +9,9 @@ import vueAxios from "vue-axios"
 import Vuex from "vuex"
 import moduleA from "./store/moduleA"
 import 'element-ui/lib/theme-default/index.css'
+import editor from "vue-quill-editor"
+
+Vue.use(editor)
 
 Vue.use(vueAxios, axios)
 Vue.use(elementUI)

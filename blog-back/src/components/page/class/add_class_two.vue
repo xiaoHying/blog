@@ -2,12 +2,7 @@
     <el-form :model="ruleForm2" :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
         <h3>选择一级类名</h3>
         <el-select v-model="value" placeholder="请选择">
-            <el-option
-            v-for="item in classOneList"
-            :key="item.cnname"
-            :label="item.cnname"
-            :value="item.cnname">
-            </el-option>
+            <el-option v-for="item in classOneList" :key="item.cnname" :id="item.id" :label="item.cnname" :value="item.cnname"></el-option>
         </el-select>
         <h3>二级类名设置</h3>
         <el-form-item label="中文类名" prop="cn">
@@ -42,6 +37,7 @@
             return {
                 classOneList:[],
                 value:"",
+                id:"",
                 ruleForm2: {
                     cnname_two: "",
                     enname_two: "",
@@ -63,18 +59,22 @@
             var _this=this;
             this.axios.get("/api/back_class/select_one_class").then(function(data){
                 _this.classOneList = data.data.data;
-                console.log(_this.classOneList);
+                console.log(data.data.data)
             },function(err){
                 console.log(err);
             })
+        },
+        mounted(){
+            console.log(this.id);
         },
         methods: {
             submitForm(formName) {
                 var _this=this;
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
+                        console.log(_this.ruleForm2);
+                        console.log(_this.classList);
                         _this.axios.post("/api/back_class/add_two_class",_this.ruleForm2).then(function(data){
-                            console.log(data)
                             if(data.data.code==="1032"){
                                 _this.$message({
                                     message:data.data.msg,
@@ -88,7 +88,6 @@
                             }
                         })
                     } else {
-                        console.log('error submit!!');
                         return false;
                     }
                 });
@@ -106,5 +105,9 @@
     }
     .el-select{
         margin-left:40px;
+    }
+    
+    .el-input{
+        width:300px;
     }
 </style>
